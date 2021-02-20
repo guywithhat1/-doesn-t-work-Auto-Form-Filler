@@ -8,7 +8,9 @@ web.get('https://docs.google.com/forms/d/e/1FAIpQLSdPPCxfAiTxcGDNWx_LziLpCwq4Jb0
 
 time.sleep(2)
 
-def fill_out_module(module, text=None):
-    element = web.find_element_by_xpath(form_inputs.xpaths[module])
+def fill_out_text_module(module):
+    web.find_element_by_xpath(form_inputs.text_xpaths[module]).send_keys(form_inputs.inputs[module])
 
-    element.send_keys(form_inputs.inputs[module])
+def click_button_modules():
+    for i in range(1,6):
+        web.find_element_by_xpath(form_inputs.button_xpaths[i]).click()
